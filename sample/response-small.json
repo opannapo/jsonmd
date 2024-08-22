@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "code": 200,
+  "message": "Client successfully retrieved",
+  "data": {
+    "client_id": 15634,
+    "client_current_rate": {
+      "client_custom_rate_id": 4924,
+      "client_status_custom_rate": "nearly_expired"
+    },
+    "client_renewal_rate": {
+      "client_custom_rate_id": 4982,
+      "client_status_custom_rate": "requested",
+      "client_status_updated_at": null
+    },
+    "client_meta": {
+      "is_return_config": false,
+      "return_config_limit": 0,
+      "return_config_reason_ids": "",
+      "insurance_type": ""
+    }
+  }
+}
