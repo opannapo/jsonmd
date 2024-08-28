@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 	"reflect"
+	"sort"
 	"text/template"
 )
 
@@ -49,6 +50,19 @@ func main() {
 	genResponseTable(jsonMap, "result")
 }
 
+func sorting(items []Item) {
+	sort.Slice(items, func(i, j int) bool {
+		tsi := getTypeAsString(items[i].OriginValue)
+		if tsi == TypeObject || tsi == TypeArray {
+			return false
+		}
+		tsj := getTypeAsString(items[j].OriginValue)
+		if tsj == TypeObject || tsj == TypeArray {
+			return true
+		}
+		return items[i].DataType < items[j].DataType
+	})
+}
 func parseJsonFile(filePath string) (result map[string]interface{}) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -155,6 +169,8 @@ func scanObjectTable(parentKey string, jsonMap map[string]interface{}) (items []
 			items = append(items, item)
 		}
 	}
+
+	sorting(items)
 
 	return
 }

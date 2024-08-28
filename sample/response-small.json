@@ -1,19 +1,17 @@
 {
   "success": true,
   "code": 200,
-  "message": "Client successfully retrieved",
+  "message": "Create user successfully",
   "data": {
-    "client_id": 15634,
-    "client_current_rate": {
-      "client_custom_rate_id": 4924,
-      "client_status_custom_rate": "nearly_expired"
+    "id": 15634,
+    "name": "opan napo",
+    "birthdate": "17 Aug 1945",
+    "nik": {
+      "number": "1001212121212112121",
+      "name": "Opan Napo ST. MsI",
+      "expired_at": "17 Aug 2075"
     },
-    "client_renewal_rate": {
-      "client_custom_rate_id": 4982,
-      "client_status_custom_rate": "requested",
-      "client_status_updated_at": null
-    },
-    "client_meta": {
+    "meta": {
       "is_return_config": false,
       "return_config_limit": 0,
       "return_config_reason_ids": "",
@@ -26,14 +24,19 @@
         }
       }
     },
-    "child": [
+    "image": {
+      "url": "images/0001.jpg",
+      "width": 200,
+      "height": 200
+    },
+    "address": [
       {
-        "name": "a",
-        "status": true
+        "name": "home 1",
+        "address": "JL.Selamat Dunia Akhirat Rt/Rw 001/002"
       },
       {
-        "name": "b",
-        "status": false
+        "name": "home 2",
+        "address": "JL.Selamat Dunia Akhirat Rt/Rw 001/002"
       }
     ]
   }
