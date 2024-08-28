@@ -5,155 +5,209 @@ Input Json
 {
   "success": true,
   "code": 200,
-  "message": "Client successfully retrieved",
+  "message": "Create user successfully",
   "data": {
-    "client_id": 15634,
-    "client_current_rate": {
-      "client_custom_rate_id": 4924,
-      "client_status_custom_rate": "nearly_expired"
+    "id": 15634,
+    "name": "opan napo",
+    "birthdate": "17 Aug 1945",
+    "nik": {
+      "number": "1001212121212112121",
+      "name": "Opan Napo ST. MsI",
+      "expired_at": "17 Aug 2075"
     },
-    "client_renewal_rate": {
-      "client_custom_rate_id": 4982,
-      "client_status_custom_rate": "requested",
-      "client_status_updated_at": null
-    },
-    "client_meta": {
+    "meta": {
       "is_return_config": false,
       "return_config_limit": 0,
       "return_config_reason_ids": "",
-      "insurance_type": ""
-    }
+      "insurance_type": "",
+      "status": {
+        "is_enable": true,
+        "child_status": {
+          "status": false,
+          "name": "child1"
+        }
+      }
+    },
+    "image": {
+      "url": "images/0001.jpg",
+      "width": 200,
+      "height": 200
+    },
+    "address": [
+      {
+        "name": "home 1",
+        "address": "JL.Selamat Dunia Akhirat Rt/Rw 001/002"
+      },
+      {
+        "name": "home 2",
+        "address": "JL.Selamat Dunia Akhirat Rt/Rw 001/002"
+      }
+    ],
+    "hobbies": [
+      "Ibadah",
+      "Menabung",
+      "Boxing",
+      "Music"
+    ]
   }
 }
 ```
 
-Output root.md file:
+Output result.md file:
 ```md
+
+
+
+#### result
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
 | success  | bool  | true | |  | 
 | code  | float64  | 200 | |  | 
-| message  | string  | Client successfully retrieved | |  | 
-| data  | object  | Table data object | |  | 
+| message  | string  | Create user successfully | |  | 
+| data  | object  | Table : .data | |  | 
+
+#### .data
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table data object    
-    
+| id  | float64  | 15634 | |  | 
+| name  | string  | opan napo | |  | 
+| birthdate  | string  | 17 Aug 1945 | |  | 
+| nik  | object  | Table : .data.nik | |  | 
+| meta  | object  | Table : .data.meta | |  | 
+| image  | object  | Table : .data.image | |  | 
+| address  | array  | Table : .data.address | |  | 
+| hobbies  | array  | Table : .data.hobbies | |  | 
+
+#### .data.nik
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_renewal_rate | object | Table client_renewal_rate object | |  |  |
-| client_meta | object | Table client_meta object | |  |  |
-| client_id | float64 | 15634 | |  |  |
-| client_current_rate | object | Table client_current_rate object | |  |  |
+| number  | string  | 1001212121212112121 | |  | 
+| name  | string  | Opan Napo ST. MsI | |  | 
+| expired_at  | string  | 17 Aug 2075 | |  | 
+
+#### .data.meta
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table client_renewal_rate object    
-    
+| is_return_config  | bool  | false | |  | 
+| return_config_limit  | float64  | 0 | |  | 
+| return_config_reason_ids  | string  |  | |  | 
+| insurance_type  | string  |  | |  | 
+| status  | object  | Table : .data.meta.status | |  | 
+
+#### .data.meta.status
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_status_updated_at |  | <nil> | |  |  |
-| client_custom_rate_id | float64 | 4982 | |  |  |
-| client_status_custom_rate | string | requested | |  |  |
+| is_enable  | bool  | true | |  | 
+| child_status  | object  | Table : .data.meta.status.child_status | |  | 
+
+#### .data.meta.status.child_status
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table client_current_rate object    
-    
+| status  | bool  | false | |  | 
+| name  | string  | child1 | |  | 
+
+#### .data.image
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_custom_rate_id | float64 | 4924 | |  |  |
-| client_status_custom_rate | string | nearly_expired | |  |  |
+| width  | float64  | 200 | |  | 
+| height  | float64  | 200 | |  | 
+| url  | string  | images/0001.jpg | |  | 
+
+#### .data.address
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table client_current_rate object    
-    
+| name  | string  | home 1 | |  | 
+| address  | string  | JL.Selamat Dunia Akhirat Rt/Rw 001/002 | |  | 
+
+#### .data.hobbies
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_status_custom_rate | string | nearly_expired | |  |  |
-| client_custom_rate_id | float64 | 4924 | |  |  |
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-### Table client_meta object    
-    
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-| is_return_config | bool | false | |  |  |
-| return_config_limit | float64 | 0 | |  |  |
-| return_config_reason_ids | string |  | |  |  |
-| insurance_type | string |  | |  |  |
-
+|   | string  | Ibadah | |  | 
 ```
 
 Output Preview:
 
+
+#### result
+
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
 | success  | bool  | true | |  | 
 | code  | float64  | 200 | |  | 
-| message  | string  | Client successfully retrieved | |  | 
-| data  | object  | Table data object | |  | 
+| message  | string  | Create user successfully | |  | 
+| data  | object  | Table : .data | |  | 
+
+#### .data
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table data object
+| id  | float64  | 15634 | |  | 
+| name  | string  | opan napo | |  | 
+| birthdate  | string  | 17 Aug 1945 | |  | 
+| nik  | object  | Table : .data.nik | |  | 
+| meta  | object  | Table : .data.meta | |  | 
+| image  | object  | Table : .data.image | |  | 
+| address  | array  | Table : .data.address | |  | 
+| hobbies  | array  | Table : .data.hobbies | |  | 
 
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-| client_renewal_rate | object | Table client_renewal_rate object | |  |  |
-| client_meta | object | Table client_meta object | |  |  |
-| client_id | float64 | 15634 | |  |  |
-| client_current_rate | object | Table client_current_rate object | |  |  |
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-### Table client_renewal_rate object
-
+#### .data.nik
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_status_updated_at |  | <nil> | |  |  |
-| client_custom_rate_id | float64 | 4982 | |  |  |
-| client_status_custom_rate | string | requested | |  |  |
+| number  | string  | 1001212121212112121 | |  | 
+| name  | string  | Opan Napo ST. MsI | |  | 
+| expired_at  | string  | 17 Aug 2075 | |  | 
+
+#### .data.meta
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table client_current_rate object
+| is_return_config  | bool  | false | |  | 
+| return_config_limit  | float64  | 0 | |  | 
+| return_config_reason_ids  | string  |  | |  | 
+| insurance_type  | string  |  | |  | 
+| status  | object  | Table : .data.meta.status | |  | 
 
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-| client_custom_rate_id | float64 | 4924 | |  |  |
-| client_status_custom_rate | string | nearly_expired | |  |  |
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-### Table client_current_rate object
-
+#### .data.meta.status
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| client_status_custom_rate | string | nearly_expired | |  |  |
-| client_custom_rate_id | float64 | 4924 | |  |  |
+| is_enable  | bool  | true | |  | 
+| child_status  | object  | Table : .data.meta.status.child_status | |  | 
+
+#### .data.meta.status.child_status
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-### Table client_meta object
+| status  | bool  | false | |  | 
+| name  | string  | child1 | |  | 
 
+#### .data.image
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-| is_return_config | bool | false | |  |  |
-| return_config_limit | float64 | 0 | |  |  |
-| return_config_reason_ids | string |  | |  |  |
-| insurance_type | string |  | |  |  |
+| width  | float64  | 200 | |  | 
+| height  | float64  | 200 | |  | 
+| url  | string  | images/0001.jpg | |  | 
+
+#### .data.address
+
+| Name | Data Type | Sample Value | Is Nullable | Description |
+|------|-----------|-------------|--------------|-------------|
+| name  | string  | home 1 | |  | 
+| address  | string  | JL.Selamat Dunia Akhirat Rt/Rw 001/002 | |  | 
+
+#### .data.hobbies
+
+| Name | Data Type | Sample Value | Is Nullable | Description |
+|------|-----------|-------------|--------------|-------------|
+|   | string  | Ibadah | |  | 
