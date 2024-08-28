@@ -1,7 +1,0 @@
-Child {{ .ObjName }}
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-{{- range .}}
-| {{ .Name }} | {{ .DataType }} | {{ .SampleValue }} | {{ .IsNullable }} | {{ .Description }} |
-{{- end}}

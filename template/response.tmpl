@@ -1,6 +1,10 @@
+{{- range .Object}}
+
+#### {{ .Name }}
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
-{{- range .}}
+{{- range .Items}}
 {{ .Name }} {{ .DataType }} {{ .SampleValue }} {{ .IsNullable }} {{ .Description }}
+{{- end}}
 {{- end}}

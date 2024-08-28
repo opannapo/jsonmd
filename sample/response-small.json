@@ -17,7 +17,24 @@
       "is_return_config": false,
       "return_config_limit": 0,
       "return_config_reason_ids": "",
-      "insurance_type": ""
-    }
+      "insurance_type": "",
+      "status": {
+        "is_enable": true,
+        "child_status": {
+          "status": false,
+          "name": "child1"
+        }
+      }
+    },
+    "child": [
+      {
+        "name": "a",
+        "status": true
+      },
+      {
+        "name": "b",
+        "status": false
+      }
+    ]
   }
 }
