@@ -125,6 +125,41 @@ func countNestedObjects(m map[string]interface{}, parentKey string, table *Table
 			table.Object = append(table.Object, obj)
 
 			count += 1 + countNestedObjects(nestedMap, parentKey+"."+s, table, depth+1)
+		} else {
+			ts := getTypeAsString(value)
+			if ts == TypeArray {
+				valArr := value.([]interface{})
+				if len(valArr) > 0 {
+					itemObj := valArr[0]
+					tsi := getTypeAsString(itemObj)
+					if tsi == TypeObject {
+						obj := Object{}
+						obj.Name = parentKey + "." + s
+						items := scanObjectTable(parentKey+"."+s, itemObj.(map[string]interface{}))
+						obj.Items = items
+						table.Object = append(table.Object, obj)
+
+						count += 1 + countNestedObjects(nestedMap, parentKey+"."+s, table, depth+1)
+					} else if tsi == TypeArray {
+						// todo not implement yet
+					} else {
+						obj := Object{}
+						obj.Name = parentKey + "." + s
+						items := []Item{
+							{
+								Name:        fmt.Sprintf("| %s ", ""),
+								DataType:    fmt.Sprintf("| %s ", getTypeAsString(itemObj)),
+								IsNullable:  "| ",
+								Description: "| ",
+								SampleValue: fmt.Sprintf("| %v |", itemObj),
+								OriginValue: itemObj,
+							},
+						}
+						obj.Items = items
+						table.Object = append(table.Object, obj)
+					}
+				}
+			}
 		}
 	}
 	return count

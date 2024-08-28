@@ -20,6 +20,7 @@
 | meta  | object  | Table : .data.meta | |  | 
 | image  | object  | Table : .data.image | |  | 
 | address  | array  | Table : .data.address | |  | 
+| hobbies  | array  | Table : .data.hobbies | |  | 
 
 #### .data.nik
 
@@ -35,8 +36,8 @@
 |------|-----------|-------------|--------------|-------------|
 | is_return_config  | bool  | false | |  | 
 | return_config_limit  | float64  | 0 | |  | 
-| insurance_type  | string  |  | |  | 
 | return_config_reason_ids  | string  |  | |  | 
+| insurance_type  | string  |  | |  | 
 | status  | object  | Table : .data.meta.status | |  | 
 
 #### .data.meta.status
@@ -60,3 +61,16 @@
 | width  | float64  | 200 | |  | 
 | height  | float64  | 200 | |  | 
 | url  | string  | images/0001.jpg | |  | 
+
+#### .data.address
+
+| Name | Data Type | Sample Value | Is Nullable | Description |
+|------|-----------|-------------|--------------|-------------|
+| name  | string  | home 1 | |  | 
+| address  | string  | JL.Selamat Dunia Akhirat Rt/Rw 001/002 | |  | 
+
+#### .data.hobbies
+
+| Name | Data Type | Sample Value | Is Nullable | Description |
+|------|-----------|-------------|--------------|-------------|
+|   | string  | Ibadah | |  | 
