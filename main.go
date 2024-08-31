@@ -7,8 +7,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"reflect"
 	"sort"
+	"strings"
 	"text/template"
 )
 
@@ -19,6 +21,8 @@ const (
 	TypeArray  = "array"
 	TypeObject = "object"
 )
+
+var LastCommitInfo = ""
 
 type Tables struct {
 	Object []Object
@@ -42,7 +46,7 @@ func main() {
 	flag.Parse()
 
 	if *fileFlag == "" {
-		fmt.Println("Usage: jsonmd --file='dir/path/file.json'")
+		fmt.Printf("Usage: jsonmd --file='dir/path/file.json'\nLast commit info : %s\n", LastCommitInfo)
 		os.Exit(0)
 	}
 
@@ -63,6 +67,7 @@ func sorting(items []Item) {
 		return items[i].DataType < items[j].DataType
 	})
 }
+
 func parseJsonFile(filePath string) (result map[string]interface{}) {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -223,4 +228,15 @@ func getTypeAsString(i interface{}) string {
 		t := reflect.TypeOf(i)
 		return t.String()
 	}
+}
+
+func getGitInfo() (lastCommitDate string) {
+	lastCommitDate = "-"
+	cmd := exec.Command("git", "log", "-1", "--format=%h %cd")
+	if output, err := cmd.Output(); err == nil {
+		lastCommitDate = strings.TrimSpace(string(output))
+		return
+	}
+
+	return lastCommitDate
 }
