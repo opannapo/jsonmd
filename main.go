@@ -42,7 +42,7 @@ func main() {
 	flag.Parse()
 
 	if *fileFlag == "" {
-		fmt.Println("Usage: jsonmd --file='c/d/e/f.json'")
+		fmt.Println("Usage: jsonmd --file='dir/path/file.json'")
 		os.Exit(0)
 	}
 
