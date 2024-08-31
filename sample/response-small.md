@@ -1,6 +1,6 @@
 
 
-#### result
+#### sample/response-small
 
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
@@ -16,19 +16,11 @@
 | id  | float64  | 15634 | |  | 
 | name  | string  | opan napo | |  | 
 | birthdate  | string  | 17 Aug 1945 | |  | 
+| hobbies  | array  | Table : .data.hobbies | |  | 
 | nik  | object  | Table : .data.nik | |  | 
 | meta  | object  | Table : .data.meta | |  | 
 | image  | object  | Table : .data.image | |  | 
 | address  | array  | Table : .data.address | |  | 
-| hobbies  | array  | Table : .data.hobbies | |  | 
-
-#### .data.nik
-
-| Name | Data Type | Sample Value | Is Nullable | Description |
-|------|-----------|-------------|--------------|-------------|
-| number  | string  | 1001212121212112121 | |  | 
-| name  | string  | Opan Napo ST. MsI | |  | 
-| expired_at  | string  | 17 Aug 2075 | |  | 
 
 #### .data.meta
 
@@ -74,3 +66,11 @@
 | Name | Data Type | Sample Value | Is Nullable | Description |
 |------|-----------|-------------|--------------|-------------|
 |   | string  | Ibadah | |  | 
+
+#### .data.nik
+
+| Name | Data Type | Sample Value | Is Nullable | Description |
+|------|-----------|-------------|--------------|-------------|
+| number  | string  | 1001212121212112121 | |  | 
+| name  | string  | Opan Napo ST. MsI | |  | 
+| expired_at  | string  | 17 Aug 2075 | |  | 

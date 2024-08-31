@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"reflect"
 	"sort"
 	"strings"
@@ -50,8 +51,9 @@ func main() {
 		os.Exit(0)
 	}
 
-	jsonMap := parseJsonFile(*fileFlag)
-	genResponseTable(jsonMap, "result")
+	jsonMap, fileName := parseJsonFile(*fileFlag)
+	println(fileName)
+	genResponseTable(jsonMap, fileName)
 }
 
 func sorting(items []Item) {
@@ -68,7 +70,7 @@ func sorting(items []Item) {
 	})
 }
 
-func parseJsonFile(filePath string) (result map[string]interface{}) {
+func parseJsonFile(filePath string) (result map[string]interface{}, fileName string) {
 	file, err := os.Open(filePath)
 	if err != nil {
 		panic(err)
@@ -84,6 +86,9 @@ func parseJsonFile(filePath string) (result map[string]interface{}) {
 	if err != nil {
 		panic(err)
 	}
+
+	fileNameWithExt := file.Name()
+	fileName = strings.TrimSuffix(fileNameWithExt, filepath.Ext(fileNameWithExt))
 
 	return
 }
